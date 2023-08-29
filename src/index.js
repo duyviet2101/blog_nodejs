@@ -26,11 +26,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/news', (req, res) => {
+  // console.log(req.query)
   res.render('news');
 });
 
 app.get("/search", (req, res) => {
-  console.log(req.query)
+  res.render("search")
+});
+
+app.post("/search", (req, res) => {
   res.render("search")
 });
 
