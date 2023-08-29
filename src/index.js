@@ -21,6 +21,11 @@ app.set('views', path.join(__dirname, 'resources/views'));
 
 console.log("PATH: ", path.join(__dirname, 'resources/views'))
 
+app.use(express.urlencoded({
+  extended: true
+})) //TH gửi thông tin qua dạng form html
+app.use(express.json()) // TH gửi từ code JS
+
 app.get('/', (req, res) => {
   res.render('home');
 });
@@ -35,7 +40,8 @@ app.get("/search", (req, res) => {
 });
 
 app.post("/search", (req, res) => {
-  res.render("search")
+  console.log(req.body)
+  res.send("ok")
 });
 
 app.listen(port, () => {
