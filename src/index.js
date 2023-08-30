@@ -25,7 +25,7 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources','views'));
 
 // rotues init
 route(app);
@@ -38,5 +38,5 @@ app.use(
 app.use(express.json()); // TH gửi từ code JS
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });
