@@ -27,16 +27,19 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources','views'));
 
-// rotues init
-route(app);
-
 app.use(
     express.urlencoded({
         extended: true,
     }),
 ); //TH gửi thông tin qua dạng form html
+
 app.use(express.json()); // TH gửi từ code JS
 
+
+// rotues init
+route(app);
+
+
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+    console.log(`App listening on  http://127.0.0.1:${port}`);
 });
