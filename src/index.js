@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const morgan = require('morgan');
 const path = require('path');
+const methodOverride = require('method-override')
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,9 @@ app.engine(
     'hbs',
     handlebars.engine({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b
+        }
     }),
 );
 app.set('view engine', 'hbs');
@@ -34,6 +38,9 @@ app.use(
 ); //TH gửi thông tin qua dạng form html
 
 app.use(express.json()); // TH gửi từ code JS
+
+
+app.use(methodOverride("_method"))
 
 
 // rotues init
